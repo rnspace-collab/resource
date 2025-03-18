@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resource Requirements Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Resource Requirements Form</h1>
+    <form id="resource-form" class="form">
+      <div class="progress-bar">
+        <div class="progress-bar-inner" style="width: 0%;"></div>
+      </div>
+
+      <div class="input-group">
+        <label for="client">Client:</label>
+        <input type="text" id="client" name="client" required>
+        <i class="fas fa-user"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+          <option value="">Select a role</option>
+          <!-- Add options here -->
+        </select>
+        <i class="fas fa-briefcase"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="grade">Grade:</label>
+        <input type="number" id="grade" name="grade" required>
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="yearsOfExperience">Years of Experience:</label>
+        <input type="number" id="yearsOfExperience" name="yearsOfExperience" required>
+        <i class="fas fa-clock"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="requisitionRaisedOnSystem">Requisition Raised on System:</label>
+        <select id="requisitionRaisedOnSystem" name="requisitionRaisedOnSystem" required>
+          <option value="">Select an option</option>
+          <!-- Add options here -->
+        </select>
+        <i class="fas fa-computer"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="requestRaisedDate">Request Raised Date:</label>
+        <input type="date" id="requestRaisedDate" name="requestRaisedDate" required>
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="start_date_tentative">Start Date Tentative:</label>
+        <input type="date" id="start_date_tentative" name="start_date_tentative" required>
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+
+      <div class="input-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="">Select a status</option>
+          <!-- Add options here -->
+        </select>
+        <i class="fas fa-spinner"></i>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="footer">
+      <p>&copy; 2023 Resource Requirements Form</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var progressBar = $('.progress-bar-inner');
+      var inputGroups = $('.input-group');
+
+      inputGroups.each(function(index) {
+        $(this).on('focus', function() {
+          progressBar.css('width', (index + 1) / inputGroups.length * 100 + '%');
+        });
+      });
+
+      $('#resource-form').submit(function(event) {
+        event.preventDefault();
+        // Handle form submission
+      });
+    });
+  </script>
+</body>
+</html>
